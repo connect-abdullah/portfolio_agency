@@ -1,34 +1,62 @@
-:root {
-  color-scheme: dark;
-  --bg: #020617;
-  --bg-elevated: #020617;
-  --border-subtle: rgba(148, 163, 184, 0.3);
-  --border-strong: rgba(148, 163, 184, 0.7);
-  --accent: #38bdf8;
-  --accent-soft: rgba(56, 189, 248, 0.12);
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
-  --success: #22c55e;
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-background: 0 0% 100%;
+  --color-foreground: 240 10% 3.9%;
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 240 10% 3.9%;
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 240 10% 3.9%;
+  --color-primary: 240 5.9% 10%;
+  --color-primary-foreground: 0 0% 98%;
+  --color-secondary: 240 4.8% 95.9%;
+  --color-secondary-foreground: 240 5.9% 10%;
+  --color-muted: 240 4.8% 95.9%;
+  --color-muted-foreground: 240 3.8% 46.1%;
+  --color-accent: 240 4.8% 95.9%;
+  --color-accent-foreground: 240 5.9% 10%;
+  --color-destructive: 0 84.2% 60.2%;
+  --color-destructive-foreground: 0 0% 98%;
+  --color-border: 240 5.9% 90%;
+  --color-input: 240 5.9% 90%;
+  --color-ring: 240 5.9% 10%;
+  --radius: 0.5rem;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.dark {
+  --color-background: 240 10% 3.9%;
+  --color-foreground: 0 0% 98%;
+  --color-card: 240 10% 3.9%;
+  --color-card-foreground: 0 0% 98%;
+  --color-popover: 240 10% 3.9%;
+  --color-popover-foreground: 0 0% 98%;
+  --color-primary: 0 0% 98%;
+  --color-primary-foreground: 240 5.9% 10%;
+  --color-secondary: 240 3.7% 15.9%;
+  --color-secondary-foreground: 0 0% 98%;
+  --color-muted: 240 3.7% 15.9%;
+  --color-muted-foreground: 240 5% 64.9%;
+  --color-accent: 240 3.7% 15.9%;
+  --color-accent-foreground: 0 0% 98%;
+  --color-destructive: 0 62.8% 30.6%;
+  --color-destructive-foreground: 0 0% 98%;
+  --color-border: 240 3.7% 15.9%;
+  --color-input: 240 3.7% 15.9%;
+  --color-ring: 240 4.9% 83.9%;
 }
 
-html,
+* {
+  @apply border-border;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top left, #0f172a 0, #020617 55%);
-  color: var(--text-main);
+  @apply bg-background text-foreground;
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
 }
 
 .page {
@@ -45,7 +73,7 @@ body {
   background: radial-gradient(circle at top left, #020617 0, #020617 55%);
   border-radius: 1.5rem;
   padding: 2.25rem 2rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(148, 163, 184, 0.3);
   box-shadow:
     0 22px 45px rgba(15, 23, 42, 0.85),
     0 0 0 1px rgba(15, 23, 42, 0.8);
@@ -61,7 +89,7 @@ body {
 .card-header p {
   margin-top: 0.5rem;
   font-size: 0.98rem;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
 .form {
@@ -91,16 +119,16 @@ body {
 label {
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
 input,
 select,
 textarea {
   border-radius: 0.9rem;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(148, 163, 184, 0.3);
   background-color: rgba(15, 23, 42, 0.75);
-  color: var(--text-main);
+  color: #e5e7eb;
   padding: 0.65rem 0.85rem;
   font-size: 0.92rem;
   outline: none;
@@ -119,8 +147,8 @@ textarea::placeholder {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent-soft);
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.12);
   background-color: rgba(15, 23, 42, 0.95);
   transform: translateY(-1px);
 }
@@ -128,8 +156,8 @@ textarea:focus {
 .submit-button {
   margin-top: 0.25rem;
   border-radius: 999px;
-  border: 1px solid var(--accent);
-  background: radial-gradient(circle at top left, var(--accent) 0, #0ea5e9 45%);
+  border: 1px solid #38bdf8;
+  background: radial-gradient(circle at top left, #38bdf8 0, #0ea5e9 45%);
   color: #0b1120;
   font-weight: 600;
   font-size: 0.95rem;
@@ -167,7 +195,7 @@ textarea:focus {
 .success {
   margin: 0.6rem 0 0;
   font-size: 0.9rem;
-  color: var(--success);
+  color: #22c55e;
 }
 
 @media (max-width: 640px) {

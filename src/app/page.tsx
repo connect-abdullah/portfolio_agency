@@ -21,7 +21,9 @@ export default function HomePage() {
   const [submitted, setSubmitted] = useState(false);
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -29,7 +31,6 @@ export default function HomePage() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    // In a real app, send form to API here
     setSubmitted(true);
   }
 
@@ -82,8 +83,8 @@ export default function HomePage() {
                 required
               >
                 <option value="">Select an option</option>
-                <option value="website">Website design & build</option>
-                <option value="branding">Branding & identity</option>
+                <option value="website">Website design &amp; build</option>
+                <option value="branding">Branding &amp; identity</option>
                 <option value="product">Product UI/UX</option>
                 <option value="other">Other</option>
               </select>

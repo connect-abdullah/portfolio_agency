@@ -1,14 +1,16 @@
-"use client";
-
+import type { Metadata } from "next";
 import "./globals.css";
-import type { ReactNode } from "react";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Portfolio Agency",
   description: "Simple portfolio agency form",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <body>{children}</body>
